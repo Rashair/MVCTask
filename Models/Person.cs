@@ -8,7 +8,7 @@ namespace MVCTask.Models
 {
     public class Person
     {
-        [RegularExpression("[A-Z]{30}")]
+        [RegularExpression("[a-zA-Z]{0,30}")]
         public string Nickname { get; set; }
 
         [EmailAddress]

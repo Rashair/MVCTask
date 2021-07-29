@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCTask.Models;
@@ -18,6 +19,11 @@ namespace MVCTask.Controllers
         [HttpPost]
         public ActionResult Index(Person model)
         {
+            if (!ModelState.IsValid)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Model invalid");
+            }
+
             return View(model);
         }
     }
